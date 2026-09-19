@@ -1,49 +1,578 @@
-        🎁
-    "Untuk Ona ku sayanggg..."
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff4f81">
+  <title>Untuk Ona ❤️</title>
 
-          ↓
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", Arial, sans-serif;
+    }
 
-     💌 Amplop
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+    }
 
-   "Ada surat untukmu"
+    /* ===== BACKGROUND ===== */
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,.18), transparent 25%),
+        linear-gradient(135deg, #ff758c, #ff7eb3);
+    }
 
-          ↓
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      animation: floatUp linear infinite;
+      opacity: .75;
+      font-size: 25px;
+    }
 
-    Buka Surat ❤️
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: .8;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
 
-          ↓
+    /* ===== OPENING ===== */
+    #opening {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      background:
+        radial-gradient(circle at center, #ff9ab8, #ff4f81);
+      transition: .8s ease;
+    }
 
-     ✨ Animasi ✨
+    .opening-box {
+      width: 100%;
+      max-width: 400px;
+    }
 
-     Rifqi ❤️ Ona
+    .gift-icon {
+      font-size: 80px;
+      animation: giftBounce 1.5s infinite;
+      margin-bottom: 20px;
+    }
 
-          ↓
+    @keyframes giftBounce {
+      0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(4deg);
+      }
+    }
 
-      Foto kalian
+    .opening-box h1 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
 
-          ↓
+    .opening-box p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      opacity: .95;
+    }
 
-   💌 Surat cinta
+    .open-btn {
+      border: none;
+      background: white;
+      color: #ff4f81;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+      transition: .3s;
+    }
 
-"Sayanggkuhhh...
-maaf yaa harus LDR..."
+    .open-btn:active {
+      transform: scale(.94);
+    }
 
-          ↓
+    /* ===== MAIN ===== */
+    #main {
+      display: none;
+      min-height: 100vh;
+      padding: 45px 20px;
+    }
 
-      🎵 Musik
+    .container {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
 
-          ↓
+    .small-text {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 8px;
+    }
 
-"Masih sayang aku?"
+    .title {
+      font-size: 38px;
+      margin-bottom: 5px;
+      text-shadow: 0 4px 15px rgba(0,0,0,.15);
+    }
 
-   [ IYA ❤️ ]
+    .subtitle {
+      font-size: 16px;
+      margin-bottom: 30px;
+      opacity: .95;
+    }
 
-          ↓
+    /* ===== PHOTO ===== */
+    .photo-frame {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 30px;
+      border-radius: 50%;
+      padding: 7px;
+      background: white;
+      box-shadow: 0 15px 40px rgba(0,0,0,.2);
+    }
 
-     💖💖💖
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
 
-"AKU JUGA SAYANG KAMU"
+    /* ===== LETTER ===== */
+    .letter {
+      background: rgba(255,255,255,.96);
+      color: #555;
+      border-radius: 25px;
+      padding: 28px 23px;
+      text-align: left;
+      box-shadow: 0 15px 40px rgba(0,0,0,.15);
+      margin-bottom: 25px;
+    }
 
-          ↓
+    .letter h2 {
+      color: #ff4f81;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 23px;
+    }
 
-     🌹 THE END
+    .letter p {
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+
+    .signature {
+      text-align: right;
+      color: #ff4f81;
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* ===== LOVE BUTTON ===== */
+    .love-button {
+      border: none;
+      background: rgba(255,255,255,.95);
+      color: #ff4f81;
+      padding: 14px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.15);
+      transition: .3s;
+    }
+
+    .love-button:active {
+      transform: scale(.94);
+    }
+
+    /* ===== SECRET MESSAGE ===== */
+    #secret {
+      display: none;
+      margin-top: 25px;
+      animation: fadeIn .8s ease;
+    }
+
+    .secret-box {
+      background: rgba(255,255,255,.96);
+      color: #555;
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.15);
+    }
+
+    .secret-box h3 {
+      color: #ff4f81;
+      margin-bottom: 12px;
+    }
+
+    .secret-box p {
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== MUSIC ===== */
+    .music-player {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      color: #ff4f81;
+      font-size: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.2);
+      cursor: pointer;
+      display: none;
+      z-index: 5;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: 35px;
+      font-size: 12px;
+      opacity: .8;
+    }
+
+    @media (max-width: 380px) {
+      .title {
+        font-size: 32px;
+      }
+
+      .photo-frame {
+        width: 190px;
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="background" id="hearts"></div>
+
+  <!-- ================= OPENING ================= -->
+  <section id="opening">
+
+    <div class="opening-box">
+
+      <div class="gift-icon">🎁</div>
+
+      <h1>Hai, Ona ❤️</h1>
+
+      <p>
+        Ada sesuatu kecil yang aku buat khusus buat kamu...
+        <br>
+        Walaupun kita sedang LDR, semoga ini bisa bikin kamu tersenyum 🥺
+      </p>
+
+      <button class="open-btn" onclick="openGift()">
+        Buka Gift ❤️
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= MAIN ================= -->
+  <main id="main">
+
+    <div class="container">
+
+      <div class="small-text">
+        Sebuah hadiah kecil dari...
+      </div>
+
+      <h1 class="title">
+        Rifqi ❤️ Ona
+      </h1>
+
+      <div class="subtitle">
+        Untuk perempuan yang selalu ada di hati aku.
+      </div>
+
+
+      <!-- FOTO -->
+      <div class="photo-frame">
+        <img src="foto-kita.jpg" alt="Rifqi dan Ona">
+      </div>
+
+
+      <!-- SURAT -->
+      <div class="letter">
+
+        <h2>💌 Untuk Sayanggkuhh</h2>
+
+        <p>
+          Sayanggkuhhh...
+        </p>
+
+        <p>
+          Maaf yaa harus LDR, syangg 🥺❤️
+          Aku tahu jarak ini nggak selalu mudah.
+          Kadang kita cuma bisa saling kangen,
+          saling menunggu kabar, dan berharap bisa
+          segera ketemu lagi.
+        </p>
+
+        <p>
+          Tapi satu hal yang harus kamu tahu...
+          sejauh apa pun jaraknya, kamu tetap
+          jadi orang yang selalu aku pikirin.
+        </p>
+
+        <p>
+          Terima kasih sudah tetap bertahan,
+          tetap sabar, dan tetap jadi bagian
+          paling spesial dalam hidup aku.
+        </p>
+
+        <p>
+          Semoga suatu hari nanti kita nggak perlu
+          lagi menghitung jarak dan waktu.
+          Karena yang aku mau cuma satu...
+          <strong>bersama kamu.</strong> ❤️
+        </p>
+
+        <div class="signature">
+          Love,<br>
+          Rifqi ❤️
+        </div>
+
+      </div>
+
+
+      <!-- SECRET BUTTON -->
+      <button class="love-button" onclick="showSecret()">
+        💖 Klik kalau kamu sayang aku
+      </button>
+
+
+      <!-- SECRET MESSAGE -->
+      <div id="secret">
+
+        <div class="secret-box">
+
+          <h3>🥺 Aku tahu kamu sayang...</h3>
+
+          <p>
+            Jadi jangan sedih yaa, Ona.
+            Walaupun sekarang kita dipisahkan jarak,
+            hati aku tetap dekat sama kamu.
+            <br><br>
+            I love you more than you know. ❤️
+            <br><br>
+            Tunggu aku yaaa...
+            Sampai akhirnya kita bisa ketemu
+            dan nggak perlu LDR lagi. 🫶
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <footer>
+        Dibuat dengan ❤️ khusus untuk Ona
+      </footer>
+
+    </div>
+
+  </main>
+
+
+  <!-- MUSIC -->
+  <audio id="music" loop>
+    <source src="my-favorite-girl.mp3" type="audio/mpeg">
+  </audio>
+
+  <button
+    class="music-player"
+    id="musicButton"
+    onclick="toggleMusic()">
+    🎵
+  </button>
+
+
+  <script>
+
+    /* =========================
+       OPEN GIFT
+    ========================= */
+
+    function openGift() {
+
+      const opening = document.getElementById("opening");
+      const main = document.getElementById("main");
+      const music = document.getElementById("music");
+      const musicButton = document.getElementById("musicButton");
+
+      opening.style.opacity = "0";
+
+      setTimeout(() => {
+
+        opening.style.display = "none";
+        main.style.display = "block";
+        musicButton.style.display = "block";
+
+        // Mulai musik setelah user menekan tombol
+        music.play().catch(() => {});
+
+      }, 800);
+
+    }
+
+
+    /* =========================
+       MUSIC
+    ========================= */
+
+    function toggleMusic() {
+
+      const music = document.getElementById("music");
+      const button = document.getElementById("musicButton");
+
+      if (music.paused) {
+
+        music.play();
+        button.innerHTML = "🎵";
+
+      } else {
+
+        music.pause();
+        button.innerHTML = "🔇";
+
+      }
+
+    }
+
+
+    /* =========================
+       SECRET MESSAGE
+    ========================= */
+
+    function showSecret() {
+
+      const secret = document.getElementById("secret");
+
+      if (secret.style.display === "block") {
+        return;
+      }
+
+      secret.style.display = "block";
+
+      // Scroll otomatis ke pesan
+      setTimeout(() => {
+        secret.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }, 100);
+
+      // Ledakan hati
+      for (let i = 0; i < 20; i++) {
+        createHeart();
+      }
+
+    }
+
+
+    /* =========================
+       FLOATING HEARTS
+    ========================= */
+
+    const heartContainer =
+      document.getElementById("hearts");
+
+    function createHeart() {
+
+      const heart = document.createElement("div");
+
+      heart.className = "heart";
+
+      const hearts = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘",
+        "💝"
+      ];
+
+      heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left =
+        Math.random() * 100 + "%";
+
+      heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+      heart.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+      heartContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 12000);
+
+    }
+
+
+    // Membuat hati secara berkala
+    setInterval(createHeart, 600);
+
+
+  </script>
+
+</body>
+</html>
